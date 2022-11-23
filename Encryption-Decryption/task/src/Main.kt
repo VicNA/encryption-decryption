@@ -1,10 +1,17 @@
 package encryptdecrypt
 
 fun main() {
-    val array1 = "abcdefghijklmnopqrstuvwxyz".toCharArray()
-    val array2 = array1.reversedArray()
+    val list = ('a'..'z').toList()
 
-    "we found a treasure!".forEach {
-        print(if (array1.contains(it)) array2[array1.indexOf(it)] else it)
+    val string = readln()
+    val offset = readln().toInt()
+
+    var char: Char
+    for (ch in string) {
+        char = if (ch.isLetter())
+            list[list.lastIndex + list.indexOf(ch) + offset - list.lastIndex - 1]
+        else
+            ch
+        print(char)
     }
 }
