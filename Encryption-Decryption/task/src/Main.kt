@@ -6,12 +6,7 @@ fun main() {
     val string = readln()
     val offset = readln().toInt()
 
-    var char: Char
-    for (ch in string) {
-        char = if (ch.isLetter())
-            list[list.lastIndex + list.indexOf(ch) + offset - list.lastIndex - 1]
-        else
-            ch
-        print(char)
+    string.forEach {
+        print(if (it.isLetter()) list[(list.indexOf(it) + offset) % list.size] else it)
     }
 }
