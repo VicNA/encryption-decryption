@@ -1,12 +1,18 @@
 package encryptdecrypt
 
 fun main() {
-    val list = ('a'..'z').toList()
+    val operation = readln()
+    val msg = readln()
+    val key = readln().toInt()
 
-    val string = readln()
-    val offset = readln().toInt()
+    val output = if (operation == "enc") encrypt(msg, key) else decrypt(msg, key)
+    println(output)
+}
 
-    string.forEach {
-        print(if (it.isLetter()) list[(list.indexOf(it) + offset) % list.size] else it)
-    }
+fun decrypt(message: String, key: Int): String {
+    return message.map { it.minus(key) }.joinToString("")
+}
+
+fun encrypt(message: String, key: Int): String {
+    return message.map { it.plus(key) }.joinToString("")
 }
