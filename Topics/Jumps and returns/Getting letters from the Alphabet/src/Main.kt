@@ -1,0 +1,1 @@
+fun main() = ('a' until readln().first()).forEach(::print)
