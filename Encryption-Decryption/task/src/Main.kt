@@ -1,11 +1,24 @@
 package encryptdecrypt
 
-fun main() {
-    val operation = readln()
-    val msg = readln()
-    val key = readln().toInt()
+fun main(args: Array<String>) {
+    var mode = "enc"
+    var key = 0
+    var data = ""
+    var arg = ""
 
-    val output = if (operation == "enc") encrypt(msg, key) else decrypt(msg, key)
+    for (i in args.indices) {
+        if (args[i] in listOf("-mode", "-key", "-data")) {
+            arg = args[i]
+        } else {
+            when (arg) {
+                "-mode" -> mode = args[i]
+                "-key" -> key = args[i].toInt()
+                "-data" -> data = args[i]
+            }
+        }
+    }
+
+    val output = if (mode == "enc") encrypt(data, key) else decrypt(data, key)
     println(output)
 }
 
