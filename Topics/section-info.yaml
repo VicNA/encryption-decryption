@@ -10,3 +10,5 @@ content:
 - Lambda expressions
 - Processing strings
 - Writing files
+- Enum
+- Default arguments
