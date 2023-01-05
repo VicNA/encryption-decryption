@@ -13,3 +13,4 @@ content:
 - Enum
 - Default arguments
 - Secondary constructor
+- Functions as objects
