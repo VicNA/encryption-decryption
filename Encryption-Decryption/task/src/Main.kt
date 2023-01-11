@@ -3,24 +3,22 @@ package encryptdecrypt
 import java.io.File
 
 fun main(args: Array<String>) {
-    var mode = "enc"
-    var key = 0
-    var data = ""
-    var input = ""
-    var out = ""
+    val keyArgs = listOf("-mode", "-key", "-data", "-in", "-out", "-alg")
+    val map = mutableMapOf<String, String>()
+
+//    var mode = "enc"
+//    var key = 0
+//    var data = ""
+//    var input = ""
+//    var out = ""
     var arg = ""
 
-    for (i in args.indices) {
-        if (args[i] in listOf("-mode", "-key", "-data", "-in", "-out")) {
-            arg = args[i]
+
+    for (str in args) {
+        if (str in keyArgs) {
+            arg = str
         } else {
-            when (arg) {
-                "-mode" -> mode = args[i]
-                "-key" -> key = args[i].toInt()
-                "-data" -> data = args[i]
-                "-in" -> input = args[i]
-                "-out" -> out = args[i]
-            }
+            map.put(arg, str)
         }
     }
 
@@ -45,10 +43,20 @@ fun main(args: Array<String>) {
     }
 }
 
-fun decrypt(message: String, key: Int): String {
+fun readData(message: String, file: String): String {
+    if (message.isEmpty() && file.isNotEmpty())
+        try {
+            return File(file).readText()
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+        }
+    return message
+}
+
+fun decrypt(message: String, key: Int, alg: String): String {
     return message.map { it.minus(key) }.joinToString("")
 }
 
-fun encrypt(message: String, key: Int): String {
+fun encrypt(message: String, key: Int, alg: String): String {
     return message.map { it.plus(key) }.joinToString("")
 }
