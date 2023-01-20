@@ -1,10 +1,5 @@
 type: choice
 is_multiple_choice: false
-options:
-- text: It represents the current object
-- text: It represents a class
-- text: It represents a variable
-- text: It represents the current state
 files:
 - name: src/Main.kt
   visible: true

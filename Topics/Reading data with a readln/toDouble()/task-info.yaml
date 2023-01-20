@@ -1,11 +1,5 @@
 type: choice
-is_multiple_choice: true
-options:
-- text: five
-- text: 5.5E
-- text: 5.5
-- text: "true"
-- text: 5
+is_multiple_choice: false
 files:
 - name: src/Main.kt
   visible: true

@@ -1,13 +1,5 @@
 type: choice
-is_multiple_choice: true
-options:
-- text: "println(array[array.size - 2])"
-- text: println(array.last())
-- text: "println(array[array.size])"
-- text: "println(array[-1])"
-- text: "println(array[array.size + 1])"
-- text: "println(array[array.size - 1])"
-- text: "println(array[array.lastIndex])"
+is_multiple_choice: false
 files:
 - name: src/Main.kt
   visible: true
