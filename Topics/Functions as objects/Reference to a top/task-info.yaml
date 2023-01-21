@@ -1,5 +1,10 @@
 type: choice
 is_multiple_choice: false
+options:
+- text: <code>::topFun</code>
+- text: <code>topFun()</code>
+- text: <code>() -&gt; topFun()</code>
+- text: <code>::topFun()</code>
 files:
 - name: src/Main.kt
   visible: true

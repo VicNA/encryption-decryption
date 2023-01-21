@@ -1,5 +1,10 @@
 type: choice
-is_multiple_choice: false
+is_multiple_choice: true
+options:
+- text: Doesn't depend on its name
+- text: Can be stored as a variable
+- text: Can be returned from another function
+- text: Can be received as an argument of another function
 files:
 - name: src/Main.kt
   visible: true

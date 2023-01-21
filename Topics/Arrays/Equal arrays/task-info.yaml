@@ -1,5 +1,10 @@
 type: choice
-is_multiple_choice: false
+is_multiple_choice: true
+options:
+- text: numbers4.contentEquals(numbers2)
+- text: numbers1.contentEquals(numbers1)
+- text: numbers2.contentEquals(numbers3)
+- text: numbers1.contentEquals(numbers2)
 files:
 - name: src/Main.kt
   visible: true

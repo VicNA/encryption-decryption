@@ -1,5 +1,10 @@
 type: choice
-is_multiple_choice: false
+is_multiple_choice: true
+options:
+- text: "repeat(\"S\", 5)"
+- text: repeat("S")
+- text: "repeat(5, true)"
+- text: repeat()
 files:
 - name: src/Main.kt
   visible: true
