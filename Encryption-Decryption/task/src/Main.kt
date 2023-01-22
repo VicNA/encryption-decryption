@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
         if (str in ArgumentKey.argKeys) {
             arg = str.substring(1).uppercase()
         } else {
-            mapArgs.put(ArgumentKey.valueOf(arg), str)
+            mapArgs[ArgumentKey.valueOf(arg)] = str
         }
     }
 
