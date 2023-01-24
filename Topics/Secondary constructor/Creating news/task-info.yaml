@@ -1,5 +1,10 @@
 type: choice
-is_multiple_choice: false
+is_multiple_choice: true
+options:
+- text: val news = News()
+- text: val news = News("Title")
+- text: "val news = News(\"Title\", \"Text\")"
+- text: "val news = News(\"Title\", \"Text\", \"Tag\")"
 files:
 - name: src/Main.kt
   visible: true

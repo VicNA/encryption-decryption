@@ -1,5 +1,10 @@
 type: choice
 is_multiple_choice: false
+options:
+- text: 3
+- text: 4
+- text: 5
+- text: Arithmetic exception is thrown
 files:
 - name: src/Main.kt
   visible: true

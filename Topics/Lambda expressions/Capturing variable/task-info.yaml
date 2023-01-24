@@ -1,5 +1,9 @@
 type: choice
 is_multiple_choice: false
+options:
+- text: Always 0
+- text: Always not 0
+- text: Anything
 files:
 - name: src/Main.kt
   visible: true

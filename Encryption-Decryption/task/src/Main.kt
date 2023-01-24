@@ -30,25 +30,21 @@ fun main(args: Array<String>) {
 
     val data = getData(mapArgs)
     val key = getKey(mapArgs)
-    val shift = { s: String, k: Int ->
-        s.map {
-            if (it.isLetter()) (it.code + k) % 'z'.minus('a') + 'a'.code
-            else it
-        }.joinToString("")
+
+    val output = if (mapArgs.getValue(ArgumentKey.ALG) == "shift")
+        shift(data, key)
+    else
+        unicode(data, key)
+
+    if (!mapArgs.containsKey(ArgumentKey.OUT))
+        println(output)
+    else {
+        try {
+            File(mapArgs.getValue(ArgumentKey.OUT)).writeText(output)
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+        }
     }
-
-//    val output = if (mode == "enc") encrypt(data, key) else decrypt(data, key)
-//    val output = convert(mapArgs)
-
-//    if (out.isEmpty())
-//        println(output)
-//    else {
-//        try {
-//            File(out).writeText(output)
-//        } catch (e: Exception) {
-//            println("Error: ${e.message}")
-//        }
-//    }
 }
 
 fun getKey(args: Map<ArgumentKey, String>): Int {
@@ -69,18 +65,20 @@ fun getData(args: Map<ArgumentKey, String>): String {
     return args.getOrDefault(ArgumentKey.DATA, "")
 }
 
-fun convert(args: Map<ArgumentKey, String>): String {
-    val key = args.getOrDefault(ArgumentKey.KEY, "0").toInt().let {
-        if (args.getValue(ArgumentKey.MODE) == "enc") it else -it
-    }
-
-    return getData(args).map { it + key }.joinToString("")
+fun shift(msg: String, key: Int): String {
+    return msg.map {
+        if (it.isLetter())
+            (
+                    if (it.isUpperCase())
+                            (('A' - it + key) % ('Z' - 'A')) + 'A'
+//                        ((it.code + key) % ('Z' - 'A')) + 'A'.code
+                    else
+                        ((it.code + key) % ('z' - 'a')) + 'a'.code
+                    ).toChar()
+        else it
+    }.joinToString("")
 }
 
-//fun decrypt(message: String, key: Int, alg: String): String {
-//    return message.map { it.minus(key) }.joinToString("")
-//}
-//
-//fun encrypt(message: String, key: Int, alg: String): String {
-//    return message.map { it.plus(key) }.joinToString("")
-//}
+fun unicode(msg: String, key: Int): String {
+    return msg.map { it + key }.joinToString("")
+}
