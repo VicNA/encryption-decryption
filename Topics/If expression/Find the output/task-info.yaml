@@ -1,11 +1,5 @@
 type: choice
 is_multiple_choice: false
-options:
-- text: 1245
-- text: 4
-- text: 45
-- text: 135
-- text: 125
 files:
 - name: src/Main.kt
   visible: true

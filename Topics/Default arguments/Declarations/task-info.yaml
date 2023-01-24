@@ -1,12 +1,5 @@
 type: choice
-is_multiple_choice: true
-options:
-- text: "numbers(a: Int = 0, b: Int = 0, c: Int) = ..."
-- text: "numbers(a: Int = 0, b: Int, c: Int) = ..."
-- text: "numbers(a: Int, b: Int, c: Int = 0) = ..."
-- text: "numbers(a: Int, b: Int = 0, c: Int = 0) = ..."
-- text: "numbers(a: Int, b: Int = 0, c: Int) = ..."
-- text: "numbers(a: Int = 0, b: Int, c: Int = 0) = ..."
+is_multiple_choice: false
 files:
 - name: src/Main.kt
   visible: true

@@ -1,11 +1,5 @@
 type: choice
 is_multiple_choice: false
-options:
-- text: These are all positive numbers of <code>Int</code> type.
-- text: "These are integers that, depending on the situation, behave both positive\
-    \ and negative."
-- text: These are integers that can contain only non-negative values.
-- text: It's just another name for regular integers.
 files:
 - name: src/Main.kt
   visible: true
