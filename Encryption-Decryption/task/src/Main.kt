@@ -67,15 +67,18 @@ fun getData(args: Map<ArgumentKey, String>): String {
 
 fun shift(msg: String, key: Int): String {
     return msg.map {
-        if (it.isLetter())
-            (
-                    if (it.isUpperCase())
-                            (('A' - it + key) % ('Z' - 'A')) + 'A'
-//                        ((it.code + key) % ('Z' - 'A')) + 'A'.code
-                    else
-                        ((it.code + key) % ('z' - 'a')) + 'a'.code
-                    ).toChar()
-        else it
+        if (it.isLetter()) {
+            var ch = it + key
+            if (it.isUpperCase()) {
+                if (ch > 'Z') 'A' + (key - ('Z' - it + 1))
+                else if (ch < 'A') 'Z' + (key + (it + 1 - 'A'))
+                else ch
+            } else {
+                if (ch > 'z') 'a' + (key - ('z' - it + 1))
+                else if (ch < 'a') 'z' + (key + (it + 1 - 'a'))
+                else ch
+            }
+        } else it
     }.joinToString("")
 }
 
