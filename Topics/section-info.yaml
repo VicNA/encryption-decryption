@@ -18,3 +18,5 @@ content:
 - Ranges
 - String templates
 - Standard input
+- Declaring functions
+- The try-catch statement
